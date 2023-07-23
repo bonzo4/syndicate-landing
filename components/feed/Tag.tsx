@@ -1,4 +1,4 @@
-import solana from "@/public/Solana.svg";
+import solana from "@/public/solana.svg";
 import Image from "next/image";
 import { FaDiscord, FaTwitter } from "react-icons/fa";
 
