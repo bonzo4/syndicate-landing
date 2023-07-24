@@ -64,7 +64,7 @@ export default function Index() {
 
   return (
     <div className='flex flex-col lg:flex-row w-full grow'>
-      <div className='flex flex-col w-full lg:w-1/2 bg-black text-white px-10 pt-48 lg:pt-64 lg:px-20 space-y-8 min-h-screen'>
+      <div className='flex flex-col w-full lg:w-1/2 bg-black text-white px-10 pb-10 pt-48 lg:pt-64 lg:px-20 space-y-8 min-h-screen'>
         <div className='flex flex-col space-y-5'>
           <div className='flex flex-col -space-y-3 font-bold text-[40px] lg:text-[65px] lg:leading-[66px]'>
           <h1 className='mb-3'>Web3 News for </h1>
