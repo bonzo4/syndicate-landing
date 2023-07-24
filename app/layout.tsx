@@ -2,6 +2,7 @@ import { Header } from '@/components/layout/Header'
 import './globals.css'
 import { Footer } from '@/components/layout/Footer'
 import { Poppins } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react';
 
 const poppins = Poppins({
   weight: ['400', '700'],
@@ -22,6 +23,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </main>
+        <Analytics />
       </body>
     </html>
   )
