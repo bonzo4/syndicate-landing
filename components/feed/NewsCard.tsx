@@ -16,7 +16,11 @@ export function NewsCard({ news }: NewsCardProps) {
   const date = new Date(news.created_at)
 
   return (
-    <div className=' flex flex-row drop-shadow-xl justify-between rounded-lg overflow-hidden bg-cardWhite'>
+    <a 
+    href="https://discord.gg/csybktKjnd"
+    target='_blank'
+    rel='noreferrer'
+    className='flex flex-row drop-shadow-xl justify-between rounded-lg overflow-hidden bg-cardWhite cursor-pointer hover:opacity-90'>
       <div className='flex flex-col py-2 pl-4 pr-4 space-y-1 w-full'>
         <p className="text-[12px]">{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</p>
         <h1 className="text-[20px] font-bold">{news.title}</h1>
@@ -48,8 +52,8 @@ export function NewsCard({ news }: NewsCardProps) {
         </div>
       </div>
       <div className="bg-black hidden lg:flex min-w-[200px] min-h-[88px] relative">
-        <Image src={news.thumbnail} alt="news" fill objectFit="cover"/>
+        <Image src={news.thumbnail} alt="news" fill style={{objectFit: "cover"}}/>
       </div>
-    </div>
+    </a>
   );
 }
