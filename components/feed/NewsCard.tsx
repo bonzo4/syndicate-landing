@@ -47,7 +47,7 @@ export function NewsCard({ news }: NewsCardProps) {
           </div>
         </div>
       </div>
-      <div className="bg-black hidden lg:flex min-w-[200px] relative">
+      <div className="bg-black hidden lg:flex min-w-[200px] min-h-[88px] relative">
         <Image src={news.thumbnail} alt="news" fill objectFit="cover"/>
       </div>
     </div>

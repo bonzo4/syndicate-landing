@@ -67,8 +67,7 @@ export default function Index() {
       <div className='flex flex-col w-full lg:w-1/2 bg-black text-white px-10 pb-10 pt-48 lg:pt-64 lg:px-20 space-y-8 min-h-screen'>
         <div className='flex flex-col space-y-5'>
           <div className='flex flex-col -space-y-3 font-bold text-[40px] lg:text-[65px] lg:leading-[66px]'>
-          <h1 className='mb-3'>Web3 News for </h1>
-          <h1 className=''>Discord Communities</h1>
+          <h1 className='flex flex-col space-y-3'>Web3 News for <br/> Discord Communities</h1>
         </div>
         <p className='text-[18px] leading-[30px] text-[#DADADA]'>News, entertainment, and experiences. Join our news network of 600+ Web3 communities and 10K+ readers.</p>
         </div>
