@@ -12,7 +12,6 @@ export async function LiveFeed() {
     .neq("title", null)
     .neq("slug", null)
     .neq("thumbnail", null)
-    .order("created_at", { ascending: false })
     .order("news_id", { ascending: false })
     .limit(4)
   
