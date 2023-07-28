@@ -16,7 +16,7 @@ export async function GET(request: Request) {
 
     if (error) {
         console.error(error)
-        return NextResponse.error()
+        return NextResponse.json({ error: `Failed to load news ${error.message}` }, { status: 500 })
     }
 
     return NextResponse.json(data, { status: 200 })
