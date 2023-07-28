@@ -6,8 +6,9 @@ export async function getNews(): Promise<News[]> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/news`)
 
   if (res.status !== 200) {
-    const error = await res.json()
-    throw new Error(`Failed to load news ${error.error}`)
+    const data = await res.json()
+    console.error(res)
+    throw new Error(`Failed to load news ${data.error}`)
   }
 
   return res.json()
