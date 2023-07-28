@@ -1,24 +1,10 @@
-import { Database } from "@/types/supabase";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
-import { cookies } from "next/headers"
+import { getData } from "@/utils/news";
 import { NewsCard } from "./NewsCard";
+
 
 export async function LiveFeed() {
 
-  const supabase = createServerComponentClient<Database>({ cookies })
-  
-  const {data, error} = await supabase.from("news_previews")
-    .select("*")
-    .neq("title", null)
-    .neq("slug", null)
-    .neq("thumbnail", null)
-    .order("news_id", { ascending: false })
-    .limit(4)
-  
-  if (error || !data) {
-    console.log(error)
-    return <div>error</div>
-  }
+  const data = await getData()
 
   return (
     <div className='flex flex-col'>
