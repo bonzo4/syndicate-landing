@@ -1,10 +1,11 @@
-import { getData } from "@/utils/news";
+import { getNews } from "@/utils/news";
 import { NewsCard } from "./NewsCard";
 
+export const revalidate = 60;
 
 export async function LiveFeed() {
 
-  const data = await getData()
+  const data = await getNews()
 
   return (
     <div className='flex flex-col'>

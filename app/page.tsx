@@ -1,11 +1,13 @@
 import { LiveFeed } from '@/components/feed/LiveFeed'
 import { LogoBar } from '@/components/landing/LogoBar'
+import { getNews } from '@/utils/news'
 import { Metadata } from 'next'
 import { FaDiscord, FaTwitter, FaArrowRight } from 'react-icons/fa'
-import { getData } from '@/utils/news'
+
+
 
 export async function generateMetadata(): Promise<Metadata> {
-  const data = await getData()
+  const data = await getNews()
   
   const tags = data?.map((news) => news.tags).flat() || []
   
