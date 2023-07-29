@@ -1,23 +1,13 @@
 import { LiveFeed } from '@/components/feed/LiveFeed'
 import { LogoBar } from '@/components/landing/LogoBar'
-import { Database } from '@/types/supabase'
 import { getNews } from '@/utils/news'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Metadata } from 'next'
-import { cookies } from 'next/headers'
 import { FaDiscord, FaTwitter, FaArrowRight } from 'react-icons/fa'
 
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const supabase = createServerComponentClient<Database>({ cookies })
-  const {data, error} = await supabase.from("news_previews")
-        .select("*")
-        .neq("title", null)
-        .neq("slug", null)
-        .neq("thumbnail", null)
-        .order("news_id", { ascending: false })
-        .limit(4);
+  const data = await getNews()
   
   const tags = data?.map((news) => news.tags).flat() || []
   
