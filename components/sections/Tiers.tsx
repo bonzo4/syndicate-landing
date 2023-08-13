@@ -1,6 +1,6 @@
 export default function Tiers() {
   return (
-    <div id='premium' className='flex flex-col min-h-screen items-center bg-black snap-center py-20 px-2'>
+    <div id='premium' className='flex flex-col min-h-screen items-center bg-black snap-center py-20 px-2 mb-10'>
       <h1 className='text-white text-[40px] font-bold'>Choose your tier</h1>
       <div className='flex flex-col lg:flex-row mt-10 space-y-10 lg:space-y-0 lg:space-x-10 px-10'>
         <div className='flex flex-col border-2 border-white rounded-xl px-10 py-10'>
