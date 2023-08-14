@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className={`lg:min-h-screen relative bg-black flex flex-col items-center ${poppins.className}`}>
+        <main className={`lg:min-h-screen relative bg-black flex flex-col items-center ${poppins.className} scroll-smooth`}>
           <Header />
           {children}
           <Footer />

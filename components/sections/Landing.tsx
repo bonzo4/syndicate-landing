@@ -1,10 +1,10 @@
-import { FaArrowRight, FaDiscord, FaTwitter } from "react-icons/fa";
+import { FaArrowCircleDown, FaArrowDown, FaArrowRight, FaDiscord, FaTwitter } from "react-icons/fa";
 import { LogoBar } from "../landing/LogoBar";
 import { LiveFeed } from "../feed/LiveFeed";
 
 export default function Landing() {
   return (
-    <div className='flex flex-col lg:flex-row w-full grow snap-center'>
+      <div className='flex flex-col lg:flex-row w-full grow snap-center relative'>
         <div className='flex flex-col w-full lg:w-1/2 bg-black text-white px-10 pb-10 pt-48 lg:pt-64 lg:px-20 space-y-8 min-h-screen'>
           <div className='flex flex-col space-y-5'>
             <div className='flex flex-col -space-y-3 font-bold text-[40px] lg:text-[65px] lg:leading-[66px]'>
@@ -31,7 +31,11 @@ export default function Landing() {
         </div>
         <div className='flex flex-col w-full lg:w-1/2 min-h-screen bg-white text-black px-5 lg:px-20 pt-16 lg:pt-36 pb-10'>
           <LiveFeed />
-        </div>
       </div>
-  ) 
+      <a href="#premium"
+        className="bg-cardWhite absolute hidden bottom-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 py-2 rounded-full drop-shadow-xl lg:flex">
+        <FaArrowDown className="text-xl" />
+      </a>
+      </div>
+  );
 }

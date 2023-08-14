@@ -6,7 +6,7 @@ import React from "react";
 export function Header() {
 
   return (
-    <header className="flex flex-row items-center justify-between w-full h-24 absolute px-20 py-10 text-black">
+    <header className="flex flex-row items-center justify-between w-full h-24 absolute px-20 py-10 text-black z-10">
       <Link href="/" className="mt-10 -ml-16"><Image src={logo} alt='logo' width={386} height={128} /></Link>
       <div className="hidden lg:flex flex-row items-center space-x-8 text-[18px]">
         <a href="/#premium" className="cursor-pointer hover:underline">
