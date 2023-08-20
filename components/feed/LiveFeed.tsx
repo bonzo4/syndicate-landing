@@ -12,8 +12,10 @@ export async function LiveFeed() {
       <h1 className="font-bold text-[36px] leading-[66px]">Live News Feed</h1>
       <div className="flex flex-col space-y-5">
         {data?.map((news) => (
+          <div key={news.news_id}>
 
-          <NewsCard news={news} key={news.news_id} />
+            <NewsCard news={news} />
+          </div>
         ))}
       </div>
     </div>

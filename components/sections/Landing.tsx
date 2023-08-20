@@ -29,7 +29,7 @@ export default function Landing() {
           
         </div>
         <a href="#premium"
-          className="flex bg-cardWhite w-content px-2 py-2 rounded-full drop-shadow-xl text-black w-[120px]">
+          className="flex bg-cardWhite w-content px-4 py-2 rounded-full drop-shadow-xl text-black w-[130px]">
           Premium<FaArrowDown className="my-auto ml-2" />
         </a>
       </div>

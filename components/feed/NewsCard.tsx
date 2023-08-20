@@ -7,7 +7,6 @@ import { Tag } from "./Tag"
 import { TwitterShareButton } from "next-share"
  
 type NewsCardProps = {
-  key: number
   news: Database["public"]["Tables"]["news_previews"]["Row"]
 }
 
