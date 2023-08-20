@@ -13,7 +13,6 @@ export async function LiveFeed() {
       <div className="flex flex-col space-y-5">
         {data?.map((news) => (
           <div key={news.news_id}>
-
             <NewsCard news={news} />
           </div>
         ))}
