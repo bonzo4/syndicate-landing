@@ -1,18 +1,28 @@
 import Image from 'next/image'
-import monke from '@/public/monke.png'
-import yacht from '@/public/yacht.png'
-import skull from '@/public/skull.png'
-import ape from '@/public/ape.png'
-import ghost from '@/public/ghost.png'
+import solana from '@/public/logos/solana.png'
+import monke from '@/public/logos/monke.webp'
+import animoca from '@/public/logos/animoca.png'
+import polygon from '@/public/logos/polygon.png'
+import azuki from '@/public/logos/azuki.png'
+import bayc from '@/public/logos/bayc.png'
+import aptos from '@/public/logos/aptos.png'
 
 export function LogoBar() {
   return (
-    <div className="flex flex-row space-x-3 lg:space-x-5">
-      <Image src={monke} alt="monke" width={50} height={50} />
-      <Image src={yacht} alt="yacht" width={50} height={50}/>
-      <Image src={skull} alt="skull" width={50} height={50}/>
-      <Image src={ape} alt="ape" width={50} height={50}/>
-      <Image src={ghost} alt="ghost" width={50} height={50}/>
+    <div className='flex flex-col space-y-3'>
+      <div className='flex flex-col space-y-3 lg:flex-row lg:space-x-3'>
+        <Image src={solana} alt='Solana Foundation' height={50} />
+          <Image src={monke} alt='MonkeDAO' height={50} />
+        <div className='flex flex-row space-x-2'>
+          <Image src={animoca} alt='Animoca Brands' height={50} />
+          <Image src={bayc} alt='Bored Ape Yacht Club' height={50}/>
+        </div>
+      </div>
+      <div className='flex flex-col space-y-3 lg:flex-row lg:space-x-3'>
+        <Image src={polygon} alt='Polygon' height={40} />
+          <Image src={azuki} alt='Azuki' height={30} />
+          <Image src={aptos} alt='Aptos' height={30} />
+      </div>
     </div>
   )
 }
