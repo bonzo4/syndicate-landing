@@ -9,15 +9,15 @@ import { FaDiscord, FaTwitter, FaArrowRight } from 'react-icons/fa'
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const data = await getNews()
+  // const data = await getNews()
   
-  const tags = data?.map((news) => news.tags).flat() || []
+  const tags = []
   
   return {
     metadataBase: new URL('https://www.syndicatenetwork.io/'),
     title: 'Syndicate Network',
     description: 'News, entertainment, and experiences. Join our news network of 600+ Web3 communities and 10K+ readers.',
-    keywords: [...tags, 'Crypto', 'Solana', 'NFT', 'Web3', 'News', 'Discord', 'Communities', 'Syndicate Network'],
+    keywords: [ 'Crypto', 'Solana', 'NFT', 'Web3', 'News', 'Discord', 'Communities', 'Syndicate Network'],
     icons: {
       icon: 'https://api.syndicatenetwork.io/storage/v1/object/public/misc/favicon.ico',
       shortcut: 'https://api.syndicatenetwork.io/storage/v1/object/public/misc/favicon.ico',
@@ -29,14 +29,6 @@ export async function generateMetadata(): Promise<Metadata> {
       description: 'News, entertainment, and experiences. Join our news network of 600+ Web3 communities and 10K+ readers.',
       title: 'Syndicate Network',
       siteName: 'Syndicate Network',
-      images: data?.map((news) => {
-        return {
-          url: news.thumbnail,
-          width: 200,
-          height: 88,
-          alt: news.title
-        }
-      })
     },
     robots: {
       index: true,

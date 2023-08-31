@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         cardWhite: 'var(--neutral-colors-color-200, #FAFAFF)',
+        cardBlack: 'var(--neutral-colors-color-800, #202225)',
         gold: 'var(--accent-colors-gold, #FFD700)',
         black: '#101010',
         background: 'hsl(var(--background))',

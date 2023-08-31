@@ -1,8 +1,20 @@
-import { FaArrowCircleDown, FaArrowDown, FaArrowRight, FaDiscord, FaTwitter } from "react-icons/fa";
+import {  FaArrowDown, FaArrowRight, FaDiscord, FaTwitter } from "react-icons/fa";
 import { LogoBar } from "../landing/LogoBar";
 import { LiveFeed } from "../feed/LiveFeed";
+import { headers } from "next/headers";
+import { BsChevronDown } from "react-icons/bs";
 
 export default function Landing() {
+
+  const headersList = headers();
+
+  const query = headersList.get("x-invoke-query") || "";
+
+  // parse query string
+  const params = decodeURIComponent(query);
+
+  const referral = JSON.parse(params).referral || "";
+
   return (
     <div className='flex flex-col lg:flex-row w-full grow snap-center relative'>
       <div className='flex flex-col w-full lg:w-1/2 bg-black text-white px-10 pb-10 pt-32 lg:pt-64 lg:px-20 space-y-8 min-h-screen'>
@@ -12,8 +24,15 @@ export default function Landing() {
           </div>
           <p className='text-[18px] leading-[30px] text-[#DADADA]'>News, entertainment, and experiences. Join our news network of 700+ Web3 communities and 1.8M+ readers.</p>
         </div>
-        <div className='flex flex-row space-x-5'>
-          <a href="https://discord.com/oauth2/authorize?client_id=1053779815418843166&permissions=268921873&redirect_uri=https%3A%2F%2Fwww.discord.gg%2F2sXPeCTzp6&response_type=code&scope=applications.commands%20bot" target='_blank' rel='noreferrer' className='border-2 border-white px-4 py-3 flex flex-row rounded-full hover:opacity-75'>
+        <div className="flex flex-col space-y-2">
+          <div className='flex flex-row space-x-5'>
+          {referral !== "" && (
+            <div className="flex flex-row space-x-16 bg-cardBlack rounded-md items-center justify-between px-3">
+              <p className="text-[#DADADA]">{referral}</p>
+              <BsChevronDown size={20} />
+            </div>
+            )}
+          <a href="https://discord.com/oauth2/authorize?client_id=1053779815418843166&permissions=309506567185&redirect_uri=https%3A%2F%2Fwww.discord.gg%2F2sXPeCTzp6&response_type=code&scope=applications.commands%20bot" target='_blank' rel='noreferrer' className='border-2 border-white px-4 py-3 flex flex-row rounded-full hover:opacity-75'>
             Add to Discord <FaArrowRight className='my-auto ml-2' />
           </a>
           <a href="https://discord.gg/syndicatenetwork" target='_blank' rel='noreferrer' className='my-auto hover:opacity-75'>
@@ -22,6 +41,8 @@ export default function Landing() {
           <a href="https://twitter.com/SyndicateNTWRK" target='_blank' rel='noreferrer' className='my-auto hover:opacity-75'>
             <FaTwitter className='w-[24px] h-[24px]' />
           </a>
+        </div>
+        {referral !== "" && (<span className="text-[#DADADA] text-[14px]">*You were referred, please select this code or enter the same code during the setup Process.</span>)}
         </div>
         <div className='flex flex-col space-y-5'>
           <p>Read by crypto's most influential</p>

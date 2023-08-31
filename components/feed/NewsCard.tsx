@@ -27,7 +27,7 @@ export function NewsCard({ news }: NewsCardProps) {
         <div className="flex flex-row justify-between">
           <div className="flex flex-row space-x-2">
             {news.tags.map((tag) => (
-              <div className="bg-[#DADADA] px-2 py-1 rounded-full">
+              <div className="bg-[#DADADA] px-2 py-1 rounded-full" key={tag}>
                 <Tag tag={tag} />
               </div>
             ))}
