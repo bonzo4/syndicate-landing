@@ -1,16 +1,12 @@
-import { LiveFeed } from '@/components/feed/LiveFeed';
-import { LogoBar } from '@/components/landing/LogoBar';
-import Landing from '@/components/sections/Landing';
+import ReferralLanding from '@/components/sections/ReferralLanding';
 import Tiers from '@/components/sections/Tiers';
-import { getNews } from '@/utils/news';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Metadata } from 'next';
-import { FaDiscord, FaTwitter, FaArrowRight } from 'react-icons/fa';
+import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
+import { Database } from '@/types';
 
 export async function generateMetadata(): Promise<Metadata> {
-  // const data = await getNews()
-
-  const tags = [];
-
   return {
     metadataBase: new URL('https://www.syndicatenetwork.io/'),
     title: 'Syndicate Network',
@@ -58,10 +54,60 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Index() {
+type ReferralPageParams = {
+  code: string | undefined;
+};
+
+export default async function ReferralPage({
+  params: { code },
+}: {
+  params: ReferralPageParams;
+}) {
+  if (!code) return redirect('/');
+
+  const supabase = createServerComponentClient<Database>({ cookies });
+
+  let referralCode: string | undefined;
+
+  const { data: ambassadorData } = await supabase
+    .from('ambassador_codes')
+    .select('code')
+    .eq('code', code)
+    .single();
+
+  if (ambassadorData) {
+    referralCode = ambassadorData.code;
+    await supabase
+      .from('ambassador_codes')
+      .update({ last_accessed: new Date().toISOString() })
+      .eq('code', code);
+  }
+
+  await supabase
+    .from('ambassador_codes')
+    .update({ last_accessed: new Date().toISOString() })
+    .eq('code', code);
+
+  const { data: referralData } = await supabase
+    .from('referral_codes')
+    .select('code')
+    .eq('code', code)
+    .single();
+
+  if (referralData) {
+    referralCode = referralData.code;
+    await supabase
+      .from('referral_codes')
+      .update({ last_accessed: new Date().toISOString() })
+      .eq('code', code);
+  }
+
+  if (!referralCode) return redirect('/');
+
   return (
     <div className='flex w-full grow snap-y snap-proximity flex-col'>
-      <Landing />
+      <ReferralLanding referral={referralCode} />
+      <Tiers />
     </div>
   );
 }

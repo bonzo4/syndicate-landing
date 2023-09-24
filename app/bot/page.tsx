@@ -1,5 +1,6 @@
 import { LiveFeed } from '@/components/feed/LiveFeed';
 import { LogoBar } from '@/components/landing/LogoBar';
+import BotLanding from '@/components/sections/BotLanding';
 import Landing from '@/components/sections/Landing';
 import Tiers from '@/components/sections/Tiers';
 import { getNews } from '@/utils/news';
@@ -61,7 +62,8 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Index() {
   return (
     <div className='flex w-full grow snap-y snap-proximity flex-col'>
-      <Landing />
+      <BotLanding />
+      <Tiers />
     </div>
   );
 }
