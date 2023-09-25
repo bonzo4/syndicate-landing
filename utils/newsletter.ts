@@ -14,11 +14,12 @@ export async function getNewsletter(): Promise<Newsletter[]> {
     method: 'GET',
   });
 
-  if (res.status !== 200) {
-    throw new Error(`Failed to load news`);
-  }
-
   const data = await res.json();
+
+  if (res.status !== 200) {
+    console.error(data);
+    return [];
+  }
 
   return data as Newsletter[];
 }
