@@ -55,7 +55,7 @@ export default function ReferralLanding({ referral }: ReferralLandingProps) {
           </div>
         </div>
         <div className='flex flex-col space-y-5'>
-          <p>Read by crypto's most influential</p>
+          <p>Read by crypto`&apos;`s most influential</p>
           <LogoBar />
         </div>
         <a
