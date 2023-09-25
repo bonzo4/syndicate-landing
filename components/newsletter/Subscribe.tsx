@@ -10,10 +10,13 @@ export default function NewsletterSubscribe() {
   const subscribe = async () => {
     if (!email) return;
 
-    const res = await fetch('/api/newsletter/subscribe', {
-      method: 'POST',
-      body: JSON.stringify({ email }),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/api/newsletter/subscribe`,
+      {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+      }
+    );
 
     const data = await res.json();
 

@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
   const cookieStore = cookies();
-  const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
+  const supabase = createRouteHandlerClient({ cookies });
 
   const { data, error } = await supabase
     .from('news_previews')
@@ -15,12 +15,12 @@ export async function GET(request: Request) {
     .order('news_id', { ascending: false })
     .limit(4);
 
-  if (error) {
+  if (error && !data) {
     console.error(error);
-    NextResponse.json(
+    return NextResponse.json(
       { error: `Failed to load news ${error.message}` },
       { status: 500 }
     );
-    return NextResponse.json(data, { status: 200 });
   }
+  return NextResponse.json(data, { status: 200 });
 }

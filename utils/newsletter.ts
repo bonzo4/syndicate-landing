@@ -10,7 +10,7 @@ export type Newsletter = {
 };
 
 export async function getNewsletter(): Promise<Newsletter[]> {
-  const res = await fetch(`/api/newsletter`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/newsletter`, {
     method: 'GET',
   });
 
