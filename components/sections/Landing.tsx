@@ -10,12 +10,12 @@ export default function Landing() {
         <div className='flex flex-col space-y-5'>
           <div className='flex flex-col -space-y-3 text-[40px] font-bold lg:text-[65px] lg:leading-[66px]'>
             <h1 className='flex flex-col space-y-3'>
-              Web3 News for <br /> Discord Communities
+              Syndicate Email
+              <br /> Newsletter
             </h1>
           </div>
           <p className='text-[18px] leading-[30px] text-[#DADADA]'>
-            News, entertainment, and experiences. Join our news network of 700+
-            Web3 communities and 1.8M+ readers.
+            Your trusted crypto companion.
           </p>
         </div>
         <div className='flex flex-col space-y-2'>
@@ -40,10 +40,10 @@ export default function Landing() {
             </a>
           </div>
         </div>
-        <div className='flex flex-col space-y-5'>
+        {/* <div className='flex flex-col space-y-5'>
           <p>Read by crypto&apos;s most influential</p>
           <LogoBar />
-        </div>
+        </div> */}
       </div>
       <div className='flex min-h-screen w-full flex-col bg-white px-5 pb-10 pt-16 text-black lg:w-1/2 lg:px-20 lg:pt-36'>
         <NewsLetterFeed />

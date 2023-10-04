@@ -20,7 +20,6 @@ export async function POST(request: Request) {
     const response = await fetch(url, options);
 
     const data = await response.json();
-    console.log(response.status, data);
     if (response.status !== 200 && response.status !== 201) {
       throw new Error(`Failed to subscribe to newsletter ${data}`);
     }

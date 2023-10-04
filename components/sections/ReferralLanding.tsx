@@ -66,7 +66,7 @@ export default function ReferralLanding({ referral }: ReferralLandingProps) {
           <FaArrowDown className='my-auto ml-2' />
         </a>
       </div>
-      <div className='flex min-h-screen w-full flex-col bg-white px-5 pb-10 pt-16 text-black lg:w-1/2 lg:px-20 lg:pt-36'>
+      <div className='flex min-h-screen w-full flex-col bg-white px-5 pb-10 pt-16 text-black lg:w-1/2 lg:px-20 lg:pt-28'>
         <ReferralSection referral={referral} />
       </div>
     </div>

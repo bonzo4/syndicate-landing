@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Tag } from './Tag';
 import { TwitterShareButton } from 'next-share';
 import { Newsletter } from '@/utils/newsletter';
+import Link from 'next/link';
 
 type NewsletterCardProps = {
   news: Newsletter;
@@ -14,10 +15,8 @@ export function NewsletterCard({ news }: NewsletterCardProps) {
   const date = new Date(news.publish_date * 1000);
 
   return (
-    <a
-      href={news.web_url}
-      target='_blank'
-      rel='noreferrer'
+    <Link
+      href={`newsletter/${news.id}`}
       className='flex cursor-pointer flex-row justify-between overflow-hidden rounded-lg bg-cardWhite drop-shadow-xl hover:opacity-90'
     >
       <div className='flex w-full flex-col space-y-1 py-2 pl-4 pr-4'>
@@ -52,6 +51,6 @@ export function NewsletterCard({ news }: NewsletterCardProps) {
           style={{ objectFit: 'cover' }}
         />
       </div>
-    </a>
+    </Link>
   );
 }

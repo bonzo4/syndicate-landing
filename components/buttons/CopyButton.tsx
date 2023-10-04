@@ -10,7 +10,6 @@ type CopyButtonProps = {
 export default function CopyButton({ text }: CopyButtonProps) {
   const copy = async () => {
     if (!text) return;
-    console.log('copying');
     await navigator.clipboard.writeText(text);
     toast.success('Copied to clipboard!');
   };
@@ -18,9 +17,9 @@ export default function CopyButton({ text }: CopyButtonProps) {
   return (
     <button
       onClick={copy}
-      className='h-full items-center justify-center rounded-md border-none bg-cardBlack px-4 py-3  text-lg text-[#DADADA] focus:ring-0'
+      className='h-full items-center justify-center rounded-md border-none bg-cardBlack px-4  text-[#DADADA] focus:ring-0'
     >
-      <AiFillCopy size={24} />
+      <AiFillCopy size={18} />
       <ToastContainer />
     </button>
   );

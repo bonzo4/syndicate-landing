@@ -1,6 +1,8 @@
-import { AiFillCopy } from 'react-icons/ai';
-import { BsChevronDown } from 'react-icons/bs';
 import CopyButton from '../buttons/CopyButton';
+import step1 from '../../public/referral/step1.png';
+import step2 from '../../public/referral/step2.png';
+import Image from 'next/image';
+
 type ReferralSectionProps = {
   referral: string;
 };
@@ -8,25 +10,24 @@ type ReferralSectionProps = {
 export async function ReferralSection({ referral }: ReferralSectionProps) {
   return (
     <div className='flex flex-col'>
-      <h1 className='text-[36px] font-bold leading-[66px]'>Referral Code</h1>
+      <h1 className='text-[36px] font-bold leading-[66px]'>
+        Referral Code: {referral}
+      </h1>
       <div className='flex flex-col space-y-10'>
-        <div className='flex flex-col space-y-5'>
-          <h2 className='text-[24px]'>
-            Select this referral code when setting up the bot.
-          </h2>
-          <div className='flex flex-row items-center justify-between space-x-16 rounded-md bg-cardBlack px-3 py-10'>
-            <p className='text-4xl text-[#DADADA]'>{referral}</p>
-            <BsChevronDown className='text-[#DADADA]' size={20} />
-          </div>
-        </div>
         <div className='flex flex-col space-y-5 '>
           <h2 className='text-[24px]'>
-            Or submit it when adding the bot to your server.
+            Step 1. While in the setup process, press 📄Submit.
           </h2>
-          <div className='flex w-full flex-row items-center space-x-10'>
-            <div className='flex w-full flex-row space-x-16 rounded-md bg-cardBlack px-3 py-10'>
-              <p className='text-4xl text-[#DADADA]'>{referral}</p>
-            </div>
+          <Image src={step1} alt='step1' />
+        </div>
+        <div className='relative flex flex-col space-y-5'>
+          <h2 className='flex flex-row text-[24px]'>
+            Step 2. Enter <h2 className='mx-[6px] font-bold'>{referral}</h2> in
+            the referral code box.
+          </h2>
+          <Image src={step2} alt='step2' />
+          <div className='absolute bottom-[105px] left-[40px] flex w-[405px] flex-row items-center justify-between space-x-16 rounded-sm bg-cardBlack px-3 py-[6px]'>
+            <p className='text-xl text-[#DADADA]'>{referral}</p>
             <CopyButton text={referral} />
           </div>
         </div>

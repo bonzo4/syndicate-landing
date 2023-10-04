@@ -1,10 +1,6 @@
-import { LiveFeed } from '@/components/feed/LiveFeed';
-import { LogoBar } from '@/components/landing/LogoBar';
-import Landing from '@/components/sections/Landing';
+import BotLanding from '@/components/sections/BotLanding';
 import Tiers from '@/components/sections/Tiers';
-import { getNews } from '@/utils/news';
 import { Metadata } from 'next';
-import { FaDiscord, FaTwitter, FaArrowRight } from 'react-icons/fa';
 
 export async function generateMetadata(): Promise<Metadata> {
   // const data = await getNews()
@@ -61,7 +57,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Index() {
   return (
     <div className='flex w-full grow snap-y snap-proximity flex-col'>
-      <Landing />
+      {/* <Landing /> */}
+      <BotLanding />
+      <Tiers />
     </div>
   );
 }
