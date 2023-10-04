@@ -10,9 +10,14 @@ export function Header() {
         <Image src={logo} alt='logo' width={386} height={128} />
       </Link>
       <div className='hidden flex-row items-center space-x-8 text-[18px] lg:flex'>
-        <Link href='/' className='cursor-pointer hover:underline'>
+        <a
+          href='https://syndicate-newsletter.beehiiv.com/subscribe'
+          target='_blank'
+          rel='noreferrer'
+          className='cursor-pointer hover:underline'
+        >
           Newsletter
-        </Link>
+        </a>
         <Link href='/bot' className='cursor-pointer hover:underline'>
           Discord Bot
         </Link>
