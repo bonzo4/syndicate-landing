@@ -1,4 +1,5 @@
 import BotLanding from '@/components/sections/BotLanding';
+import Landing from '@/components/sections/Landing';
 import Tiers from '@/components/sections/Tiers';
 import { Metadata } from 'next';
 
@@ -57,9 +58,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Index() {
   return (
     <div className='flex w-full grow snap-y snap-proximity flex-col'>
-      {/* <Landing /> */}
-      <BotLanding />
-      <Tiers />
+      <Landing />
+      {/* <BotLanding />
+      <Tiers /> */}
     </div>
   );
 }

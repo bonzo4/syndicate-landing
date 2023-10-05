@@ -40,10 +40,10 @@ export default function Landing() {
             </a>
           </div>
         </div>
-        {/* <div className='flex flex-col space-y-5'>
+        <div className='flex flex-col space-y-5'>
           <p>Read by crypto&apos;s most influential</p>
           <LogoBar />
-        </div> */}
+        </div>
       </div>
       <div className='flex min-h-screen w-full flex-col bg-white px-5 pb-10 pt-16 text-black lg:w-1/2 lg:px-20 lg:pt-36'>
         <NewsLetterFeed />
