@@ -22,8 +22,8 @@ export default function ReferralLanding({ referral }: ReferralLandingProps) {
             </h1>
           </div>
           <p className='text-[18px] leading-[30px] text-[#DADADA]'>
-            News, entertainment, and experiences. Join our news network of 700+
-            Web3 communities and 1.8M+ readers.
+            News, entertainment, and experiences. Join our news network of 1100+
+            Web3 communities and 3M+ readers.
           </p>
         </div>
         <div className='flex flex-col space-y-2'>
