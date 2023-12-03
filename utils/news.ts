@@ -1,4 +1,4 @@
-import { Database } from '@/types/supabase';
+import { Database } from '@/types';
 
 type News = Database['public']['Tables']['news_previews']['Row'];
 

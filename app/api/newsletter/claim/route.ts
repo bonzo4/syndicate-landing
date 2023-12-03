@@ -1,3 +1,4 @@
+import { Database } from '@/types';
 import { claimNft } from '@/utils/claim';
 import { getSubscriber } from '@/utils/subscriber';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
@@ -22,7 +23,7 @@ export async function GET(request: NextRequest) {
 
     const email = subscriber.email;
 
-    const supabase = createRouteHandlerClient({ cookies });
+    const supabase = createRouteHandlerClient<Database>({ cookies });
 
     const now = new Date().toISOString();
 
