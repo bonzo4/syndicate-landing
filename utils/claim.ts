@@ -29,8 +29,6 @@ export async function claimNft({ nft, email }: ClaimNftOptions) {
   const response = await fetch(underdogUrl, options);
   const json = await response.json();
 
-  console.log(json);
-
   if (!response.ok) {
     throw new Error(json.message);
   }
