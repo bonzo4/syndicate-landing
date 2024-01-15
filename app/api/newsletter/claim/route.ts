@@ -67,10 +67,10 @@ export async function GET(request: NextRequest) {
       'https://passport.underdogprotocol.com/syndicate'
     );
   } catch (error: any) {
-    // return NextResponse.json({ error: error.message }, { status: 400 });
+    return NextResponse.json({ error: error.message }, { status: 400 });
     console.error(error.message);
-    return NextResponse.redirect(
-      'https://passport.underdogprotocol.com/syndicate'
-    );
+    // return NextResponse.redirect(
+    //   'https://passport.underdogprotocol.com/syndicate'
+    // );
   }
 }
