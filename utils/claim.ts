@@ -18,8 +18,8 @@ export async function claimNft({ nft, email }: ClaimNftOptions) {
     body: JSON.stringify({
       name: nft.name,
       image: nft.image,
-      attributes: { Set: 'Blurble Newsletter' },
-      // description: nft.description,
+      attributes: nft.attributes,
+      description: nft.description,
       receiver: {
         identifier: email,
         namespace: 'syndicate',
