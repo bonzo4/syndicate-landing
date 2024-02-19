@@ -5,6 +5,9 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const maxDuration = 30;
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   //   try {
   throw new Error('Not a valid NFT to claim.');
@@ -67,14 +70,8 @@ export async function GET(request: NextRequest) {
   //     return NextResponse.redirect(
   //       'https://passport.underdogprotocol.com/syndicate'
   //     );
-  //   } catch (error: any) {
-  //     return NextResponse.redirect(
-  //       `${process.env.NEXT_PUBLIC_URL}/api/newsletter/claim/error?message=${(
-  //         (error.message as string) || ''
-  //       )
-  //         .toLowerCase()
-  //         .replace(' ', '-')}`
-  //     );
+  //   } catch (error) {
+  //     return NextResponse.json({ error }, { status: 400 });
   //     // console.error(error);
   //     // return NextResponse.redirect(
   //     //   'https://passport.underdogprotocol.com/syndicate'

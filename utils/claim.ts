@@ -19,6 +19,7 @@ export async function claimNft({ nft, email }: ClaimNftOptions) {
       name: nft.name,
       image: nft.image,
       attributes: nft.attributes,
+      description: nft.description,
       receiver: {
         identifier: email,
         namespace: 'syndicate',
