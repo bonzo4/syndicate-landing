@@ -6,71 +6,78 @@ import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  try {
-    const searchParams = request.nextUrl.searchParams;
+  //   try {
+  throw new Error('Not a valid NFT to claim.');
+  //     const searchParams = request.nextUrl.searchParams;
 
-    const subscriberId = searchParams.get('subscriber_id');
+  //     const subscriberId = searchParams.get('subscriber_id');
 
-    if (!subscriberId) {
-      throw new Error('Missing subscriber_id');
-    }
+  //     if (!subscriberId) {
+  //       throw new Error('Please subscribe to the email list first.');
+  //     }
 
-    const subscriber = await getSubscriber(subscriberId);
+  //     const subscriber = await getSubscriber(subscriberId);
 
-    if (!subscriber) {
-      throw new Error('Subscriber not found');
-    }
+  //     if (!subscriber) {
+  //       throw new Error('Subscriber not found');
+  //     }
 
-    const email = subscriber.email;
+  //     const email = subscriber.email;
 
-    const supabase = createRouteHandlerClient<Database>({ cookies });
+  //     const supabase = createRouteHandlerClient<Database>({ cookies });
 
-    const now = new Date().toISOString();
+  //     const now = new Date().toISOString();
 
-    const { data: nftData, error: nftError } = await supabase
-      .from('nfts')
-      .select('*')
-      .lt('opens_at', now)
-      .gt('ends_at', now)
-      .single();
+  //     const { data: nftData, error: nftError } = await supabase
+  //       .from('nfts')
+  //       .select('*')
+  //       .lt('opens_at', now)
+  //       .gt('ends_at', now)
+  //       .single();
 
-    if (nftError || !nftData) {
-      throw new Error('No NFTs to claim at this time');
-    }
+  //     if (nftError || !nftData) {
+  //       throw new Error('No NFTs to claim at this time');
+  //     }
 
-    const { data: claimData, error: claimError } = await supabase
-      .from('nft_email_claims')
-      .select('*')
-      .eq('email', email)
-      .eq('nft_id', nftData.id)
-      .single();
+  //     const { data: claimData, error: claimError } = await supabase
+  //       .from('nft_email_claims')
+  //       .select('*')
+  //       .eq('email', email)
+  //       .eq('nft_id', nftData.id)
+  //       .single();
 
-    if (claimData) {
-      throw new Error('NFT already claimed');
-    }
+  //     if (claimData) {
+  //       throw new Error('NFT already claimed');
+  //     }
 
-    await claimNft({ nft: nftData, email });
+  //     await claimNft({ nft: nftData, email });
 
-    const { error: claimError2 } = await supabase
-      .from('nft_email_claims')
-      .insert({
-        email,
-        nft_id: nftData.id,
-      });
+  //     const { error: claimError2 } = await supabase
+  //       .from('nft_email_claims')
+  //       .insert({
+  //         email,
+  //         nft_id: nftData.id,
+  //       });
 
-    if (claimError2) {
-      console.log(claimError2);
-      throw new Error('Error claiming NFT');
-    }
+  //     if (claimError2) {
+  //       console.log(claimError2);
+  //       throw new Error('Error claiming NFT');
+  //     }
 
-    return NextResponse.redirect(
-      'https://passport.underdogprotocol.com/syndicate'
-    );
-  } catch (error) {
-    return NextResponse.json({ error }, { status: 400 });
-    // console.error(error);
-    // return NextResponse.redirect(
-    //   'https://passport.underdogprotocol.com/syndicate'
-    // );
-  }
+  //     return NextResponse.redirect(
+  //       'https://passport.underdogprotocol.com/syndicate'
+  //     );
+  //   } catch (error: any) {
+  //     return NextResponse.redirect(
+  //       `${process.env.NEXT_PUBLIC_URL}/api/newsletter/claim/error?message=${(
+  //         (error.message as string) || ''
+  //       )
+  //         .toLowerCase()
+  //         .replace(' ', '-')}`
+  //     );
+  //     // console.error(error);
+  //     // return NextResponse.redirect(
+  //     //   'https://passport.underdogprotocol.com/syndicate'
+  //     // );
+  //   }
 }
